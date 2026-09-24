@@ -33,8 +33,11 @@ st.markdown("""
     }
 
     /* --- FIXED NAVBAR --- */
-    /* Target the specific block containing our #navbar-anchor and make it fixed */
-    div[data-testid="stVerticalBlock"] > div:has(#navbar-anchor) {
+    /* The whole navbar row (logo + menu + demo button) is wrapped in
+       st.container(key="navbar") in the Python code below. Streamlit
+       automatically adds the class "st-key-navbar" to that wrapper, so we
+       can target the ENTIRE row directly instead of guessing at :has(). */
+    .st-key-navbar {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
@@ -188,55 +191,60 @@ if 'verification' not in st.session_state:
 
 
 # --- TOP NAVIGATION (STICKY) ---
-# We inject an invisible anchor #navbar-anchor so our CSS knows which block to make sticky
-col_logo, col_nav, col_demo = st.columns([2.5, 6.5, 2])
-with col_logo:
-    st.markdown("""
-    <div id='navbar-anchor' style="padding-top: 5px;">
-        <h3 style='color: #00d2ff; margin: 0; font-weight: 800; letter-spacing: 1px;'>OceanPatrol</h3>
-        <p style='color: #8892b0; font-size: 0.8rem; margin: 0; font-style: italic;'>"Detect. Track. Predict. Intercept."</p>
-    </div>
-    """, unsafe_allow_html=True)
+# The whole row (logo + menu + demo button) lives inside one keyed
+# container. Streamlit renders it as <div class="st-key-navbar">...</div>,
+# which is what the CSS above pins to the top of the viewport. Previously
+# only the logo's own div was being matched, so the menu items scrolled
+# away instead of staying docked in the navbar.
+with st.container(key="navbar"):
+    col_logo, col_nav, col_demo = st.columns([2.5, 6.5, 2])
+    with col_logo:
+        st.markdown("""
+        <div style="padding-top: 5px;">
+            <h3 style='color: #00d2ff; margin: 0; font-weight: 800; letter-spacing: 1px;'>OceanPatrol</h3>
+            <p style='color: #8892b0; font-size: 0.8rem; margin: 0; font-style: italic;'>"Detect. Track. Predict. Intercept."</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-with col_nav:
-    page = st.radio("Nav", [
-        "Dashboard", 
-        "Report", 
-        "Hotspots", 
-        "Ocean Conditions", 
-        "Forecast", 
-        "Priority Zones", 
-        "Microplastics", 
-        "History",
-        "About"
-    ], horizontal=True, label_visibility="collapsed")
+    with col_nav:
+        page = st.radio("Nav", [
+            "Dashboard", 
+            "Report", 
+            "Hotspots", 
+            "Ocean Conditions", 
+            "Forecast", 
+            "Priority Zones", 
+            "Microplastics", 
+            "History",
+            "About"
+        ], horizontal=True, label_visibility="collapsed")
 
-with col_demo:
-    if st.button("LOAD DEMO SCENARIO", use_container_width=True):
-        st.session_state['reports'] = load_csv("reports.csv")
-        new_report = pd.DataFrame([{
-            "report_id": f"RPT-DEMO-{datetime.now().strftime('%M%S')}",
-            "latitude": -3.655,
-            "longitude": 128.188,
-            "date": datetime.now().strftime("%Y-%m-%d"),
-            "time": datetime.now().strftime("%H:%M"),
-            "category": "Plastic",
-            "image_path": "demo_image.jpg",
-            "confidence": 0.92,
-            "verification_status": "Unverified"
-        }])
-        st.session_state['reports'] = pd.concat([st.session_state['reports'], new_report], ignore_index=True)
-        new_forecast = pd.DataFrame([{
-            "forecast_id": f"FC-DEMO-{datetime.now().strftime('%M%S')}",
-            "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
-            "latitude": -3.655,
-            "longitude": 128.188,
-            "predicted_latitude": -3.670,
-            "predicted_longitude": 128.175,
-            "priority": "HIGH",
-            "estimated_arrival": 14
-        }])
-        st.session_state['forecast'] = pd.concat([st.session_state['forecast'], new_forecast], ignore_index=True)
+    with col_demo:
+        if st.button("LOAD DEMO SCENARIO", use_container_width=True):
+            st.session_state['reports'] = load_csv("reports.csv")
+            new_report = pd.DataFrame([{
+                "report_id": f"RPT-DEMO-{datetime.now().strftime('%M%S')}",
+                "latitude": -3.655,
+                "longitude": 128.188,
+                "date": datetime.now().strftime("%Y-%m-%d"),
+                "time": datetime.now().strftime("%H:%M"),
+                "category": "Plastic",
+                "image_path": "demo_image.jpg",
+                "confidence": 0.92,
+                "verification_status": "Unverified"
+            }])
+            st.session_state['reports'] = pd.concat([st.session_state['reports'], new_report], ignore_index=True)
+            new_forecast = pd.DataFrame([{
+                "forecast_id": f"FC-DEMO-{datetime.now().strftime('%M%S')}",
+                "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+                "latitude": -3.655,
+                "longitude": 128.188,
+                "predicted_latitude": -3.670,
+                "predicted_longitude": 128.175,
+                "priority": "HIGH",
+                "estimated_arrival": 14
+            }])
+            st.session_state['forecast'] = pd.concat([st.session_state['forecast'], new_forecast], ignore_index=True)
 
 st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
 
