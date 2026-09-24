@@ -49,61 +49,47 @@ st.markdown("""
         box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
     }
 
-    /* --- NAV LINKS (GOJEK-STYLE: FLAT TEXT, ONE ROW, NO BULLETS) --- */
-    /* Scoped to data-testid="stRadio" (stable across Streamlit versions)
-       instead of assuming label is a DIRECT child of the radiogroup —
-       that assumption was wrong before and is why the old rules silently
-       did nothing. Descendant selectors here match regardless of nesting. */
-    div[data-testid="stRadio"] svg {
-        display: none !important;
-    }
-    div[data-testid="stRadio"] label > *:not([data-testid="stMarkdownContainer"]) {
-        display: none !important;
-    }
-
-    /* Single row, left-aligned next to the logo, no wrapping to a 2nd line.
-       Falls back to a (hidden) horizontal scroll on very narrow windows
-       instead of breaking onto another row like before. */
-    div[data-testid="stRadio"] div[role="radiogroup"] {
+    /* --- NAV LINKS (GOJEK-STYLE: FLAT TEXT, ONE ROW) --- */
+    /* The nav is now built from real st.button() elements (see the Python
+       below), each with its own key, instead of st.radio(). Buttons don't
+       have a hidden "bullet" element to guess at, so this is far more
+       reliable than the previous radio-hiding CSS (which ended up hiding
+       the label TEXT along with the bullet, making the whole menu vanish). */
+    .st-key-navlinks [data-testid="stVerticalBlock"] {
         display: flex !important;
+        flex-direction: row !important;
         flex-wrap: nowrap !important;
-        justify-content: flex-start !important;
         align-items: center !important;
-        gap: 32px !important;
+        gap: 28px !important;
         overflow-x: auto !important;
         scrollbar-width: none !important;
     }
-    div[data-testid="stRadio"] div[role="radiogroup"]::-webkit-scrollbar {
+    .st-key-navlinks [data-testid="stVerticalBlock"]::-webkit-scrollbar {
         display: none !important;
     }
-
-    /* Plain text links: no pill/box background, just an underline on the
-       active item, matching gojek.com's navbar look */
-    div[data-testid="stRadio"] label {
+    .st-key-navlinks [data-testid="stVerticalBlock"] > div {
+        width: auto !important;
+        flex: 0 0 auto !important;
+    }
+    .st-key-navlinks .stButton > button {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
         padding: 4px 0 !important;
         margin: 0 !important;
-        background: transparent !important;
         border-radius: 0 !important;
         border-bottom: 2px solid transparent !important;
-        cursor: pointer !important;
-        white-space: nowrap !important;
-        transition: border-color 0.25s ease !important;
-    }
-    div[data-testid="stRadio"] label p {
-        font-size: 15px !important;
-        font-weight: 700 !important;
         color: #c7d2e6 !important;
-        margin: 0 !important;
-        transition: color 0.25s ease !important;
+        font-weight: 700 !important;
+        font-size: 15px !important;
+        white-space: nowrap !important;
+        transition: color 0.25s ease, border-color 0.25s ease !important;
     }
-    div[data-testid="stRadio"] label:hover p {
+    .st-key-navlinks .stButton > button:hover {
         color: #ffffff !important;
-    }
-    div[data-testid="stRadio"] label[aria-checked="true"] {
-        border-bottom: 2px solid #00d2ff !important;
-    }
-    div[data-testid="stRadio"] label[aria-checked="true"] p {
-        color: #00d2ff !important;
+        background: transparent !important;
+        box-shadow: none !important;
     }
 
     /* Vertically center logo / nav / button within the navbar row */
@@ -221,7 +207,7 @@ with st.container(key="navbar"):
         """, unsafe_allow_html=True)
 
     with col_nav:
-        page = st.radio("Nav", [
+        NAV_ITEMS = [
             "Dashboard", 
             "Report", 
             "Hotspots", 
@@ -231,7 +217,28 @@ with st.container(key="navbar"):
             "Microplastics", 
             "History",
             "About"
-        ], horizontal=True, label_visibility="collapsed")
+        ]
+        if "page" not in st.session_state:
+            st.session_state["page"] = "Dashboard"
+
+        with st.container(key="navlinks"):
+            for item in NAV_ITEMS:
+                if st.button(item, key=f"nav_{item.replace(' ', '_')}"):
+                    st.session_state["page"] = item
+
+        page = st.session_state["page"]
+        # Highlight whichever nav button matches the current page. Each
+        # button's key becomes CSS class st-key-nav_<Item> (spaces -> "_"),
+        # so this targets the active one precisely without touching the rest.
+        active_slug = page.replace(" ", "_")
+        st.markdown(f"""
+        <style>
+        .st-key-nav_{active_slug} button {{
+            color: #00d2ff !important;
+            border-bottom: 2px solid #00d2ff !important;
+        }}
+        </style>
+        """, unsafe_allow_html=True)
 
     with col_demo:
         if st.button("LOAD DEMO SCENARIO", use_container_width=True):
