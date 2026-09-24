@@ -54,7 +54,13 @@ st.markdown("""
        below), each with its own key, instead of st.radio(). Buttons don't
        have a hidden "bullet" element to guess at, so this is far more
        reliable than the previous radio-hiding CSS (which ended up hiding
-       the label TEXT along with the bullet, making the whole menu vanish). */
+       the label TEXT along with the bullet, making the whole menu vanish).
+       The rule below is duplicated two ways because Streamlit sometimes
+       puts the "st-key-navlinks" class directly on the stVerticalBlock
+       node, and sometimes on a wrapper one level above it -- covering
+       both means this keeps working either way instead of silently
+       matching nothing (which is what made the menu stack vertically). */
+    .st-key-navlinks,
     .st-key-navlinks [data-testid="stVerticalBlock"] {
         display: flex !important;
         flex-direction: row !important;
@@ -64,9 +70,11 @@ st.markdown("""
         overflow-x: auto !important;
         scrollbar-width: none !important;
     }
+    .st-key-navlinks::-webkit-scrollbar,
     .st-key-navlinks [data-testid="stVerticalBlock"]::-webkit-scrollbar {
         display: none !important;
     }
+    .st-key-navlinks > div,
     .st-key-navlinks [data-testid="stVerticalBlock"] > div {
         width: auto !important;
         flex: 0 0 auto !important;
