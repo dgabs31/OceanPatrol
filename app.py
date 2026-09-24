@@ -49,52 +49,66 @@ st.markdown("""
         box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
     }
 
-    /* --- RADIO BUTTONS AS TABS (NO BULLETS) --- */
-    /* Hide the radio bullet circle */
-    div[role="radiogroup"] > label > div:first-child:not([data-testid="stMarkdownContainer"]) {
+    /* --- NAV LINKS (GOJEK-STYLE: FLAT TEXT, ONE ROW, NO BULLETS) --- */
+    /* Scoped to data-testid="stRadio" (stable across Streamlit versions)
+       instead of assuming label is a DIRECT child of the radiogroup —
+       that assumption was wrong before and is why the old rules silently
+       did nothing. Descendant selectors here match regardless of nesting. */
+    div[data-testid="stRadio"] svg {
         display: none !important;
     }
-    div[role="radiogroup"] > label svg {
+    div[data-testid="stRadio"] label > *:not([data-testid="stMarkdownContainer"]) {
         display: none !important;
     }
 
-    /* Layout the radio buttons horizontally */
-    div[role="radiogroup"] {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 5px;
+    /* Single row, left-aligned next to the logo, no wrapping to a 2nd line.
+       Falls back to a (hidden) horizontal scroll on very narrow windows
+       instead of breaking onto another row like before. */
+    div[data-testid="stRadio"] div[role="radiogroup"] {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 32px !important;
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
     }
-    
-    /* Style the radio labels as buttons */
-    div[role="radiogroup"] > label {
-        padding: 10px 15px !important;
+    div[data-testid="stRadio"] div[role="radiogroup"]::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    /* Plain text links: no pill/box background, just an underline on the
+       active item, matching gojek.com's navbar look */
+    div[data-testid="stRadio"] label {
+        padding: 4px 0 !important;
         margin: 0 !important;
-        border-radius: 8px !important;
         background: transparent !important;
-        transition: all 0.3s ease !important;
+        border-radius: 0 !important;
+        border-bottom: 2px solid transparent !important;
         cursor: pointer !important;
+        white-space: nowrap !important;
+        transition: border-color 0.25s ease !important;
     }
-    div[role="radiogroup"] > label:hover {
-        background: rgba(255,255,255,0.08) !important;
-    }
-    div[role="radiogroup"] > label[aria-checked="true"] {
-        background: rgba(0, 210, 255, 0.15) !important;
-    }
-    
-    /* Text styles for the tabs */
-    div[role="radiogroup"] p {
+    div[data-testid="stRadio"] label p {
         font-size: 15px !important;
-        font-weight: 600 !important;
-        color: #8892b0 !important;
+        font-weight: 700 !important;
+        color: #c7d2e6 !important;
         margin: 0 !important;
-        transition: color 0.3s ease !important;
+        transition: color 0.25s ease !important;
     }
-    div[role="radiogroup"] > label:hover p {
-        color: #e6f1ff !important;
+    div[data-testid="stRadio"] label:hover p {
+        color: #ffffff !important;
     }
-    div[role="radiogroup"] > label[aria-checked="true"] p {
+    div[data-testid="stRadio"] label[aria-checked="true"] {
+        border-bottom: 2px solid #00d2ff !important;
+    }
+    div[data-testid="stRadio"] label[aria-checked="true"] p {
         color: #00d2ff !important;
+    }
+
+    /* Vertically center logo / nav / button within the navbar row */
+    .st-key-navbar div[data-testid="stHorizontalBlock"] {
+        align-items: center !important;
     }
 
     /* --- GOJEK/PERTAMINA STYLE DASHBOARD CARDS --- */
