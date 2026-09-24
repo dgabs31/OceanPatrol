@@ -1,0 +1,4 @@
+sample_id,latitude,longitude,date,concentration,particle_count,size,shape,polymer_type
+MP-001,-3.664,128.182,2023-09-15,High,450,<1mm,Fragment,PE
+MP-002,-3.659,128.178,2023-09-16,Medium,210,1-5mm,Fiber,PP
+MP-003,-3.671,128.188,2023-09-17,Low,85,<1mm,Pellet,PS

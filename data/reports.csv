@@ -1,0 +1,6 @@
+report_id,latitude,longitude,date,time,category,image_path,confidence,verification_status
+RPT-001,-3.665,128.181,2023-10-01,08:30,Plastic,dummy.jpg,0.85,Verified
+RPT-002,-3.662,128.175,2023-10-01,09:15,Fishing Gear,dummy.jpg,0.92,Unverified
+RPT-003,-3.658,128.185,2023-10-02,14:20,Packaging,dummy.jpg,0.78,Verified
+RPT-004,-3.668,128.190,2023-10-02,16:45,Mixed Waste,dummy.jpg,0.88,Unverified
+RPT-005,-3.670,128.170,2023-10-03,07:10,Plastic,dummy.jpg,0.95,Unverified

@@ -1,0 +1,3 @@
+forecast_id,timestamp,latitude,longitude,predicted_latitude,predicted_longitude,priority,estimated_arrival
+FC-001,2023-10-03T08:00:00,-3.665,128.181,-3.660,128.190,HIGH,14
+FC-002,2023-10-03T08:00:00,-3.662,128.175,-3.658,128.180,MEDIUM,20

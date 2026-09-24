@@ -1,0 +1,3 @@
+timestamp,latitude,longitude,current_speed,current_direction,wind_speed,wind_direction,tide,rainfall
+2023-10-03T08:00:00,-3.665,128.180,0.5,NE,12,SW,High,Low
+2023-10-03T14:00:00,-3.665,128.180,0.8,E,15,W,Ebb,Medium

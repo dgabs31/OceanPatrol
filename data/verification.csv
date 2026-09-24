@@ -1,0 +1,3 @@
+verification_id,zone_id,date,actual_debris_found,latitude,longitude,density,notes
+V-001,Zone A,2023-10-02,YES,-3.658,128.185,High,Cleared 50kg of plastic
+V-002,Zone B,2023-10-03,NO,-3.675,128.195,Low,Minor debris found
