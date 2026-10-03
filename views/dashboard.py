@@ -12,6 +12,7 @@ ALUR = [
     ("LAPOR", "Warga kirim foto dan lokasi"),
     ("ANALISIS", "AI kenali jenis sampah"),
     ("PEMETAAN", "Laporan jadi hotspot"),
+    ("PREDIKSI", "Tahap berikutnya, butuh data arus"),
     ("PRIORITAS", "Urutan lokasi ditangani"),
     ("VERIFIKASI", "Cek lapangan, jadi feedback"),
 ]
@@ -20,9 +21,11 @@ MODUL = [
     ("Lapor", "Warga dan nelayan mengirim foto, lokasi, dan waktu. Lokasi terisi otomatis dari perangkat.", COLORS["mint"]),
     ("Analisis", "AI mengenali jenis sampah dari foto, petugas menerima atau menolak laporan.", COLORS["accent"]),
     ("Pemetaan", "Laporan digabung menjadi hotspot dengan peringkat kepadatan per sel sekitar 900 m.", COLORS["warning"]),
+    ("Prediksi", "Perkiraan gerak sampah 24 jam. Tahap berikutnya, menunggu kerja sama data arus dan angin.", COLORS["warning"]),
     ("Prioritas", "Hotspot diberi skor agar petugas tahu lokasi mana yang ditangani lebih dulu.", COLORS["danger"]),
     ("Verifikasi", "Hasil cek lapangan kembali ke sistem dan memperbarui status laporan.", COLORS["mint"]),
-    ("Data IKLH", "Klaster dan analisis spasial 34 provinsi menunjukkan wilayah berisiko serupa.", COLORS["accent"]),
+    ("Mikroplastik", "Hotspot plastik menjadi petunjuk lokasi sampling mikroplastik untuk laboratorium.", COLORS["accent"]),
+    ("Data IKLH", "Klaster dan analisis spasial 34 provinsi menunjukkan wilayah berisiko serupa.", COLORS["mint"]),
 ]
 
 
@@ -154,8 +157,8 @@ def render():
     _grafik(reports)
 
     ui.section_title("Jelajahi Modul")
-    for awal in (0, 3):
-        for i, col in enumerate(st.columns(3)):
+    for awal in (0, 4):
+        for i, col in enumerate(st.columns(4)):
             nama, isi, warna = MODUL[awal + i]
             with col:
                 # Seluruh kotak bisa diklik: tombol transparan menutupi kartu (lihat .st-key-modul_* di style.css)

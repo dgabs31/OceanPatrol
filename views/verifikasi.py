@@ -36,7 +36,7 @@ def _form(r):
 
 
 def render():
-    ui.page_header("LANGKAH 5", "VERIFIKASI LAPANGAN",
+    ui.page_header("LANGKAH 6", "VERIFIKASI LAPANGAN",
                    "Tim atau relawan mengecek zona prioritas. Hasilnya kembali ke sistem sebagai feedback dan data monitoring.")
 
     zones = pipeline.zona()

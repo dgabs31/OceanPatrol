@@ -67,6 +67,7 @@ KELEBIHAN = [
     "Modular, bisa dikembangkan ke teluk lain",
 ]
 KEKURANGAN = [
+    ("Prediksi pergerakan belum aktif", "Kerja sama data BMKG dan Copernicus, diuji dengan laporan lapangan"),
     ("Belum ada mode offline", "Laporan disimpan di ponsel, terkirim saat ada sinyal"),
     ("Bias pelapor di area ramai", "Patroli rutin dan penanda area data kurang"),
     ("Belum ada deteksi laporan ganda", "Gabung laporan berjarak kurang dari 100 m dan 2 jam"),
@@ -75,24 +76,28 @@ KEKURANGAN = [
     ("Belum ada insentif dan SOP", "Poin pelapor dan SOP bersama DLH"),
 ]
 KETERBATASAN = [
-    "Laporan, kondisi perairan, dan klasifikasi foto pada tampilan ini masih berupa data peragaan",
+    "Prediksi pergerakan belum aktif karena data arus dan angin resmi belum tersedia",
+    "Laporan warga dan klasifikasi foto pada tampilan ini masih berupa data peragaan",
     "Mikroplastik tetap butuh sampling dan laboratorium",
     "Analisis IKLH masih tingkat provinsi",
     "Survei sampah pesisir dari 2017; data SIPSN Ambon tidak lengkap",
     "Zona prioritas adalah rekomendasi dan tetap perlu verifikasi lapangan",
-    "Data lokasi dan kondisi perairan baru lengkap untuk Teluk Ambon",
+    "Data lokasi baru lengkap untuk Teluk Ambon",
 ]
 
 SUMBER_DATA = [
     ("Posisi sampah aktual", "Laporan OceanPatrol", "Dasar hotspot dan zona prioritas"),
     ("Ground truth", "Verifikasi dan survei lapangan", "Mengukur ketepatan zona prioritas"),
     ("IKLH dan faktor penentu", "KLHK, SIPSN 2024, BPS 2024", "Analisis klaster dan spasial provinsi"),
+    ("Angin, arus, gelombang, pasang surut", "BMKG, Copernicus Marine", "Rencana: input prediksi pergerakan"),
+    ("Curah hujan", "NASA GPM IMERG", "Rencana: penanda kiriman sampah setelah hujan"),
     ("Garis pantai dan batimetri", "BIG atau OpenStreetMap", "Peta dasar dan batas teluk"),
 ]
 
 STATUS_DATA = [
     ("Lapor, pemetaan hotspot, zona prioritas, verifikasi", "Berfungsi"),
     ("Analisis foto", "Klasifikasi berbasis ciri gambar, akan diganti model deteksi objek terlatih"),
+    ("Prediksi pergerakan 24 jam", "Belum aktif, menunggu data arus dan angin resmi"),
     ("Laporan warga", "Data peragaan, laporan lapangan masuk setelah pilot berjalan"),
     ("IKLH 34 provinsi, klaster, LISA, SEM, SIPSN", "Data nyata dari analisis tim"),
     ("Survei sampah pesisir Teluk Ambon", "Data nyata dari literatur"),
@@ -116,7 +121,7 @@ CAKUPAN = [
      "kelompok hotspot spasial. Maluku masuk kelompok hotspot, tetapi data provinsi tidak memperlihatkan titik kritis di dalamnya."),
     ("Skala lokal: membongkar titik kritis", "OceanPatrol bekerja di tingkat teluk. Teluk Ambon dipilih sebagai wilayah awal karena "
      "kepadatan sampah pesisirnya, 68,74 item/m2 di Poka, hampir tidak terlihat pada data agregat."),
-    ("Dirancang untuk seluruh pesisir Indonesia", "Alur lapor, analisis, pemetaan, prioritas, dan verifikasi tidak terikat satu lokasi. "
+    ("Dirancang untuk seluruh pesisir Indonesia", "Alur lapor, analisis, pemetaan, prediksi, prioritas, dan verifikasi tidak terikat satu lokasi. "
      "Laporan dari wilayah lain tetap dapat diterima dan dipetakan dengan koordinatnya."),
     ("Yang perlu disiapkan untuk wilayah baru", "Daftar lokasi acuan dan lokasi sensitif, batas perairan, sumber data kondisi perairan setempat, "
      "serta kalibrasi bobot skor dari hasil verifikasi di wilayah itu."),
