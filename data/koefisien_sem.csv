@@ -1,0 +1,5 @@
+variabel,koefisien,p_value,signifikan,arah,keterangan
+ln Kepadatan penduduk,-2.6630,0.0000,Ya,Negatif,"Kepadatan naik dua kali lipat menurunkan IKLH sekitar 1,8 poin"
+Timbulan sampah per kapita,0.8696,0.7772,Tidak,Positif,"Volume sampah per orang belum membedakan IKLH antarprovinsi"
+Komposisi sampah plastik (%),-0.1804,0.0456,Ya,Negatif,"Setiap kenaikan 1 persen porsi plastik menurunkan IKLH sekitar 0,18 poin"
+Lambda (efek spasial),0.5496,0.0016,Ya,Positif,"Ada ketergantungan spasial antarprovinsi bertetangga"

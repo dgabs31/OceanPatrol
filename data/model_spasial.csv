@@ -1,0 +1,4 @@
+model,nama,r2,aic,rmse,keterangan
+OLS,Regresi linear berganda,0.7323,172.88,2.911,Tanpa unsur spasial
+SAR,Spatial Lag Model,0.7639,171.08,2.568,IKLH dipengaruhi IKLH tetangga
+SEM,Spatial Error Model,0.7318,165.55,2.383,Model terbaik (AIC terendah)

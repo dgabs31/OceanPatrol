@@ -1,0 +1,4 @@
+klaster,nama_zona,rata_rata_iklh,jumlah_provinsi,median_kepadatan,wilayah_dominan,warna
+0,Zona Terjaga,79.66,4,12,Papua dan Kalimantan Tengah,#74EBD5
+1,Zona Pengawasan,75.65,23,102,"Sumatra, Kalimantan, Sulawesi, Nusa Tenggara, Maluku",#a18cd1
+2,Zona Kritis,67.03,7,1186,Jawa dan Bali,#ff9a9e

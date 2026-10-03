@@ -1,6 +1,31 @@
-report_id,latitude,longitude,date,time,category,image_path,confidence,verification_status
-RPT-001,-3.665,128.181,2023-10-01,08:30,Plastic,dummy.jpg,0.85,Verified
-RPT-002,-3.662,128.175,2023-10-01,09:15,Fishing Gear,dummy.jpg,0.92,Unverified
-RPT-003,-3.658,128.185,2023-10-02,14:20,Packaging,dummy.jpg,0.78,Verified
-RPT-004,-3.668,128.190,2023-10-02,16:45,Mixed Waste,dummy.jpg,0.88,Unverified
-RPT-005,-3.670,128.170,2023-10-03,07:10,Plastic,dummy.jpg,0.95,Unverified
+report_id,timestamp,latitude,longitude,lokasi,jenis,kategori,ai_kategori,estimasi_jumlah,pelapor,confidence,status,foto
+RPT-001,2026-09-16 06:53,-3.65661,128.20255,Poka,Terdampar,Plastik kemasan,Plastik kemasan,Sedang,Petugas DLH,0.75,Terverifikasi,demo.jpg
+RPT-002,2026-09-16 09:50,-3.6882,128.18031,Pasar Mardika,Terapung,Kantong plastik,Kantong plastik,Sedang,Nelayan,0.86,Terverifikasi,demo.jpg
+RPT-003,2026-09-18 06:49,-3.65741,128.20297,Poka,Terapung,Plastik kemasan,Alat tangkap,Sedang,Warga,0.83,Ditolak,demo.jpg
+RPT-004,2026-09-18 09:45,-3.65462,128.20358,Poka,Terapung,Plastik kemasan,Plastik kemasan,Banyak,Nelayan,0.77,Menunggu verifikasi,demo.jpg
+RPT-005,2026-09-19 09:24,-3.68643,128.18086,Pasar Mardika,Terdampar,Kantong plastik,Botol plastik,Banyak,Warga,0.86,Menunggu verifikasi,demo.jpg
+RPT-006,2026-09-20 07:48,-3.6331,128.2374,Negeri Lama,Terdampar,Sampah campuran,Sampah campuran,Sedang,Warga,0.8,Menunggu verifikasi,demo.jpg
+RPT-007,2026-09-20 08:29,-3.67224,128.16914,Wayame,Terdampar,Alat tangkap,Alat tangkap,Sedang,Warga,0.92,Terverifikasi,demo.jpg
+RPT-008,2026-09-21 08:30,-3.6702,128.17011,Wayame,Terapung,Alat tangkap,Alat tangkap,Sedikit,Nelayan,0.9,Menunggu verifikasi,demo.jpg
+RPT-009,2026-09-21 17:19,-3.68852,128.18055,Pasar Mardika,Terdampar,Styrofoam,Styrofoam,Sedang,Nelayan,0.85,Menunggu verifikasi,demo.jpg
+RPT-010,2026-09-22 09:38,-3.64043,128.24264,BTN Passo Indah,Terapung,Plastik kemasan,Plastik kemasan,Banyak,Nelayan,0.89,Terverifikasi,demo.jpg
+RPT-011,2026-09-22 10:50,-3.62941,128.23616,Negeri Lama,Terdampar,Sampah campuran,Sampah campuran,Sedikit,Warga,0.93,Terverifikasi,demo.jpg
+RPT-012,2026-09-22 17:02,-3.65624,128.20224,Poka,Terapung,Botol plastik,Botol plastik,Banyak,Petugas DLH,0.88,Terverifikasi,demo.jpg
+RPT-013,2026-09-23 07:41,-3.66854,128.19942,Galala,Terdampar,Styrofoam,Plastik kemasan,Sedikit,Nelayan,0.84,Menunggu verifikasi,demo.jpg
+RPT-014,2026-09-24 16:52,-3.69637,128.11711,Tawiri,Terapung,Alat tangkap,Alat tangkap,Sedikit,Nelayan,0.85,Terverifikasi,demo.jpg
+RPT-015,2026-09-25 09:10,-3.65787,128.21376,Halong,Terapung,Sampah campuran,Sampah campuran,Sedang,Warga,0.75,Ditolak,demo.jpg
+RPT-016,2026-09-25 16:49,-3.63186,128.23617,Negeri Lama,Terapung,Sampah campuran,Sampah campuran,Sedikit,Petugas DLH,0.92,Terverifikasi,demo.jpg
+RPT-017,2026-09-25 17:25,-3.65583,128.20533,Poka,Terapung,Plastik kemasan,Plastik kemasan,Sedang,Nelayan,0.93,Menunggu verifikasi,demo.jpg
+RPT-018,2026-09-26 07:49,-3.64315,128.2457,BTN Passo Indah,Terapung,Plastik kemasan,Plastik kemasan,Banyak,Petugas DLH,0.94,Terverifikasi,demo.jpg
+RPT-019,2026-09-29 06:56,-3.65928,128.21796,Halong,Terapung,Botol plastik,Botol plastik,Sedang,Petugas DLH,0.77,Menunggu verifikasi,demo.jpg
+RPT-020,2026-09-30 08:19,-3.643,128.24545,BTN Passo Indah,Terdampar,Plastik kemasan,Botol plastik,Banyak,Warga,0.82,Menunggu verifikasi,demo.jpg
+RPT-021,2026-09-30 10:19,-3.6406,128.24407,BTN Passo Indah,Terdampar,Plastik kemasan,Plastik kemasan,Sedang,Nelayan,0.91,Menunggu verifikasi,demo.jpg
+RPT-022,2026-09-30 17:22,-3.66515,128.1982,Galala,Terapung,Styrofoam,Styrofoam,Sedang,Nelayan,0.75,Terverifikasi,demo.jpg
+RPT-023,2026-10-01 09:35,-3.66676,128.19937,Galala,Terapung,Styrofoam,Styrofoam,Sedang,Nelayan,0.8,Terverifikasi,demo.jpg
+RPT-024,2026-10-01 10:31,-3.68523,128.17949,Pasar Mardika,Terdampar,Styrofoam,Styrofoam,Sedang,Nelayan,0.76,Menunggu verifikasi,demo.jpg
+RPT-025,2026-10-01 17:03,-3.68948,128.17725,Pasar Mardika,Terapung,Kantong plastik,Kantong plastik,Sedang,Warga,0.96,Terverifikasi,demo.jpg
+RPT-026,2026-10-02 07:11,-3.65512,128.20168,Poka,Terapung,Plastik kemasan,Plastik kemasan,Banyak,Nelayan,0.89,Terverifikasi,demo.jpg
+RPT-027,2026-10-02 08:04,-3.69789,128.1139,Tawiri,Terapung,Plastik kemasan,Sampah campuran,Banyak,Warga,0.86,Terverifikasi,demo.jpg
+RPT-028,2026-10-02 09:34,-3.65838,128.21368,Halong,Terapung,Botol plastik,Botol plastik,Sedang,Nelayan,0.75,Menunggu verifikasi,demo.jpg
+RPT-029,2026-10-02 10:34,-3.68682,128.1774,Pasar Mardika,Terapung,Kantong plastik,Kantong plastik,Sedang,Petugas DLH,0.75,Terverifikasi,demo.jpg
+RPT-030,2026-10-02 15:17,-3.63827,128.24535,BTN Passo Indah,Terdampar,Plastik kemasan,Plastik kemasan,Sedikit,Nelayan,0.9,Ditolak,demo.jpg
