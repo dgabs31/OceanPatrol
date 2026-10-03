@@ -1,4 +1,4 @@
-"""Halaman Prediksi: tahap berikutnya dari alur OceanPatrol.
+"""Halaman Prediksi: langkah 3 dari alur OceanPatrol.
 
 Halaman ini sengaja tidak menampilkan angka atau peta prediksi. Data arus, angin, pasang surut, dan hujan
 yang resmi belum menjadi bagian dari sistem, sehingga halaman ini menjelaskan cara kerja, kebutuhan data,
@@ -9,6 +9,7 @@ import pandas as pd
 import streamlit as st
 
 from components import ui
+from core import pipeline
 from core.config import COLORS
 
 ALUR_PREDIKSI = [
@@ -64,15 +65,23 @@ def _daftar_mitra(items, warna):
 
 
 def render():
-    ui.page_header("LANGKAH 4", "PREDIKSI PERGERAKAN SAMPAH",
+    ui.page_header("LANGKAH 3: PREDIKSI", "PREDIKSI PERGERAKAN SAMPAH",
                    "Perkiraan ke mana sampah bergerak selama 24 jam, agar penanganan dilakukan sebelum sampah menyebar.")
 
     ui.flow(ALUR_PREDIKSI)
 
-    ui.info_box("STATUS TAHAP INI",
-                "Prediksi belum aktif di versi ini dan tidak menampilkan angka perkiraan. Tahap ini membutuhkan data arus, "
+    ui.info_box("STATUS FITUR INI",
+                "Prediksi belum aktif di versi ini dan tidak menampilkan angka perkiraan. Fitur ini membutuhkan data arus, "
                 "angin, pasang surut, dan hujan yang resmi, serta kerja sama dengan pemilik data. Halaman ini menjelaskan "
                 "cara kerjanya, apa yang dibutuhkan, dan apa yang akan dihasilkan.", COLORS["warning"])
+
+    ui.section_title("Gambaran Jika Data Lengkap")
+    zona = pipeline.zona()
+    nama = [str(x) for x in zona["lokasi"].head(3)] + ["Hotspot", "Hotspot", "Hotspot"]
+    ui.tampil("prediksi_ilustrasi", hotspot_1=ui.esc(nama[0]), hotspot_2=ui.esc(nama[1]), hotspot_3=ui.esc(nama[2]))
+    ui.info_box("YANG BERUBAH DI ZONA PRIORITAS",
+                "Setiap zona akan memiliki arah gerak dan estimasi kedatangan sampah, dan skor prioritas ditambah faktor zona tujuan "
+                "akumulasi. Halaman Zona Prioritas sudah menyiapkan tempat untuk keterangan ini.", COLORS["accent"])
 
     ui.section_title("Kenapa Sampah Laut Perlu Diperkirakan")
     ui.md("<p>Sampah tidak diam di tempat laporan dibuat. Hujan membawa sampah dari daratan lewat sungai, angin mengubah arah "
@@ -101,7 +110,7 @@ def render():
         ui.tampil("daftar_card", warna=COLORS["mint"], judul="TAHAP PENGEMBANGAN",
                   isi=_daftar(TAHAPAN, COLORS["mint"]))
 
-    ui.info_box("HUBUNGAN DENGAN TAHAP SEBELUMNYA",
+    ui.info_box("HUBUNGAN DENGAN ALUR UTAMA",
                 "Laporan warga dan verifikasi lapangan yang sudah berjalan di OceanPatrol menjadi titik awal sekaligus bahan uji "
                 "bagi prediksi. Karena itu prediksi adalah kelanjutan alami dari sistem ini, bukan komponen yang terpisah.",
                 COLORS["accent"])

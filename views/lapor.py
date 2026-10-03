@@ -80,7 +80,7 @@ def _tampilkan_hasil(h):
 
 
 def render():
-    ui.page_header("LANGKAH 1", "LAPOR SAMPAH LAUT",
+    ui.page_header("LANGKAH 1: LAPOR", "LAPOR SAMPAH LAUT",
                    "Warga dan nelayan menjadi sensor pesisir: kirim foto, lokasi, waktu, dan jenis sampah.")
 
     st.session_state.setdefault("in_lat", st.session_state.get("lapor_lat", LAT_AWAL))

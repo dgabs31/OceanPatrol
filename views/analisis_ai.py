@@ -34,7 +34,7 @@ def _antrean(df):
 
 
 def render():
-    ui.page_header("LANGKAH 2", "ANALISIS FOTO DENGAN AI",
+    ui.page_header("LANGKAH 1: LAPOR (PEMERIKSAAN FOTO)", "ANALISIS FOTO DENGAN AI",
                    "AI mengklasifikasi jenis sampah yang terlihat. Petugas memeriksa laporan sebelum masuk peta.")
 
     df = data.reports()

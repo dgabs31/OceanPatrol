@@ -122,9 +122,9 @@ CAKUPAN = [
      "kelompok hotspot spasial. Maluku masuk kelompok hotspot, tetapi data provinsi tidak memperlihatkan titik kritis di dalamnya."),
     ("Skala lokal: membongkar titik kritis", "OceanPatrol bekerja di tingkat teluk. Teluk Ambon dipilih sebagai wilayah awal karena "
      "kepadatan sampah pesisirnya, 68,74 item/m2 di Poka, hampir tidak terlihat pada data agregat."),
-    ("Dirancang untuk seluruh pesisir Indonesia", "Alur lapor, analisis, pemetaan, prediksi, prioritas, dan verifikasi tidak terikat satu lokasi. "
+    ("Dirancang untuk seluruh pesisir Indonesia", "Alur lapor, petakan, prediksi, dan tindak tidak terikat satu lokasi. "
      "Laporan dari wilayah lain tetap dapat diterima dan dipetakan dengan koordinatnya."),
-    ("Yang perlu disiapkan untuk wilayah baru", "Daftar lokasi acuan dan lokasi sensitif, batas perairan, data kondisi perairan setempat untuk tahap prediksi, "
+    ("Yang perlu disiapkan untuk wilayah baru", "Daftar lokasi acuan dan lokasi sensitif, batas perairan, data kondisi perairan setempat untuk pengembangan prediksi, "
      "serta kalibrasi bobot skor dari hasil verifikasi di wilayah itu."),
 ]
 

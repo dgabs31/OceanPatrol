@@ -37,7 +37,7 @@ def kartu_zona(r, baru=False):
 
 
 def render():
-    ui.page_header("LANGKAH 5", "ZONA PRIORITAS",
+    ui.page_header("LANGKAH 4: TINDAK (ZONA PRIORITAS)", "ZONA PRIORITAS",
                    "Hotspot diberi skor agar petugas tahu lokasi mana yang diverifikasi lebih dulu, bukan mencari secara acak.")
 
     zones = pipeline.zona()

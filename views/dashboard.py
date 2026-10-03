@@ -9,19 +9,17 @@ from core import data, pipeline
 from core.config import COLORS, LEVEL_COLORS
 
 ALUR = [
-    ("LAPOR", "Warga kirim foto dan lokasi"),
-    ("ANALISIS", "AI kenali jenis sampah"),
-    ("PEMETAAN", "Laporan jadi hotspot"),
-    ("PREDIKSI", "Tahap berikutnya, butuh data arus"),
-    ("PRIORITAS", "Urutan lokasi ditangani"),
-    ("VERIFIKASI", "Cek lapangan, jadi feedback"),
+    ("LAPOR", "Warga dan nelayan kirim foto, lokasi, waktu, jenis sampah"),
+    ("PETAKAN", "Laporan jadi titik temuan dan hotspot"),
+    ("PREDIKSI", "Arus, angin, pasang surut untuk perkiraan 24 jam. Menunggu data"),
+    ("TINDAK", "Prioritas zona, koordinat, verifikasi lapangan"),
 ]
 
 MODUL = [
     ("Lapor", "Warga dan nelayan mengirim foto, lokasi, dan waktu. Lokasi terisi otomatis dari perangkat.", COLORS["mint"]),
     ("Analisis", "AI mengenali jenis sampah dari foto, petugas menerima atau menolak laporan.", COLORS["accent"]),
     ("Pemetaan", "Laporan digabung menjadi hotspot dengan peringkat kepadatan per sel sekitar 900 m.", COLORS["warning"]),
-    ("Prediksi", "Perkiraan gerak sampah 24 jam. Tahap berikutnya, menunggu kerja sama data arus dan angin.", COLORS["warning"]),
+    ("Prediksi", "Perkiraan gerak sampah 24 jam. Belum aktif, menunggu kerja sama data arus dan angin.", COLORS["warning"]),
     ("Prioritas", "Hotspot diberi skor agar petugas tahu lokasi mana yang ditangani lebih dulu.", COLORS["danger"]),
     ("Verifikasi", "Hasil cek lapangan kembali ke sistem dan memperbarui status laporan.", COLORS["mint"]),
     ("Mikroplastik", "Hotspot plastik menjadi petunjuk lokasi sampling mikroplastik untuk laboratorium.", COLORS["accent"]),

@@ -55,7 +55,7 @@ def _tabel_hotspot(hs):
 
 
 def render():
-    ui.page_header("LANGKAH 3", "PEMETAAN HOTSPOT",
+    ui.page_header("LANGKAH 2: PETAKAN", "PEMETAAN HOTSPOT",
                    "Laporan warga dipetakan menjadi titik temuan dan hotspot konsentrasi sampah.")
 
     semua = data.reports()
