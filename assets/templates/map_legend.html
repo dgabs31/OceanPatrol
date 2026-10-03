@@ -1,0 +1,15 @@
+<style>
+.op-map-legend {
+    position: absolute; left: 20px; bottom: 28px; z-index: 9999;
+    background: rgba(10, 25, 47, 0.93); border: 1px solid #233554; border-radius: 14px;
+    padding: 14px 18px; color: #ccd6f6; font-family: 'Poppins', sans-serif; font-size: 13px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+.op-map-legend-title { font-weight: 800; letter-spacing: 1px; color: #e6f1ff; margin-bottom: 8px; font-size: 12px; }
+.op-map-legend-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.op-map-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; flex: none; }
+</style>
+<div class="op-map-legend">
+    <div class="op-map-legend-title">{{judul}}</div>
+    {{isi}}
+</div>
