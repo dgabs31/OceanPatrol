@@ -59,6 +59,7 @@ OceanPatrol/
 │   ├── lapor.py
 │   ├── analisis_ai.py
 │   ├── pemetaan.py
+│   ├── prediksi.py         Tahap berikutnya (prediksi pergerakan): cara kerja, kebutuhan data, calon mitra. Tanpa angka prediksi.
 │   ├── prioritas.py
 │   ├── verifikasi.py
 │   ├── mikroplastik.py
@@ -152,10 +153,11 @@ Setiap file punya satu fungsi `render()`.
 
 | Halaman | Isi |
 |---|---|
-| Dashboard | Tiga kartu ringkasan, alur lima langkah, peta gabungan, konteks area pertama (IKLH Maluku, SIPSN, survei Poka), fakta Teluk Ambon. |
+| Dashboard | Tiga kartu ringkasan, alur enam langkah, peta gabungan, konteks area pertama (IKLH Maluku, SIPSN, survei Poka), fakta Teluk Ambon. |
 | Lapor | Formulir laporan dengan unggah foto, pilih lokasi dengan klik peta, hasil analisis foto. |
 | Analisis | Ringkasan hasil AI, kecocokan AI dengan pelapor, antrean laporan dengan tombol Terima dan Tolak. |
 | Pemetaan | Filter laporan, heatmap, peringkat hotspot, komposisi sampah, data survei literatur, riwayat laporan per minggu. |
+| Prediksi | Tahap berikutnya dari alur: cara kerja, kebutuhan data, calon mitra, dan keluaran. Tidak menampilkan angka prediksi karena data arus dan angin resmi belum ada. |
 | Prioritas | Zona prioritas dengan skor, rekomendasi, objek sensitif terdekat, dan rincian alasan skor. |
 | Verifikasi | Formulir cek lapangan per zona, riwayat verifikasi, status laporan, unduh CSV. |
 | Mikroplastik | Alur makro ke mikro, fakta mikroplastik Teluk Ambon, rencana titik sampling. |
