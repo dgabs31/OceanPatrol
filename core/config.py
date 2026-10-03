@@ -32,6 +32,7 @@ NAV_ITEMS = [
     "Lapor",
     "Analisis",
     "Pemetaan",
+    "Prediksi",
     "Prioritas",
     "Verifikasi",
     "Mikroplastik",
