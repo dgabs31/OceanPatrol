@@ -67,6 +67,7 @@ KELEBIHAN = [
     "Modular, bisa dikembangkan ke teluk lain",
 ]
 KEKURANGAN = [
+    ("Klasifikasi foto belum memakai model terlatih", "Latih model deteksi objek dari foto yang sudah diperiksa petugas"),
     ("Prediksi pergerakan belum aktif", "Kerja sama data BMKG dan Copernicus, diuji dengan laporan lapangan"),
     ("Belum ada mode offline", "Laporan disimpan di ponsel, terkirim saat ada sinyal"),
     ("Bias pelapor di area ramai", "Patroli rutin dan penanda area data kurang"),
@@ -123,7 +124,7 @@ CAKUPAN = [
      "kepadatan sampah pesisirnya, 68,74 item/m2 di Poka, hampir tidak terlihat pada data agregat."),
     ("Dirancang untuk seluruh pesisir Indonesia", "Alur lapor, analisis, pemetaan, prediksi, prioritas, dan verifikasi tidak terikat satu lokasi. "
      "Laporan dari wilayah lain tetap dapat diterima dan dipetakan dengan koordinatnya."),
-    ("Yang perlu disiapkan untuk wilayah baru", "Daftar lokasi acuan dan lokasi sensitif, batas perairan, sumber data kondisi perairan setempat, "
+    ("Yang perlu disiapkan untuk wilayah baru", "Daftar lokasi acuan dan lokasi sensitif, batas perairan, data kondisi perairan setempat untuk tahap prediksi, "
      "serta kalibrasi bobot skor dari hasil verifikasi di wilayah itu."),
 ]
 
